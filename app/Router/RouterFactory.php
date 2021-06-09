@@ -18,7 +18,7 @@ final class RouterFactory
            $router = new RouteList();
                  
            $admin = new RouteList('Admin');
-           $admin->addRoute('[<locale=cs cs|en>/]admin/<presenter>/<action>[/<id>]', 'Start:default');
+           $admin->addRoute('[<locale=cs cs|en>/]admin/<presenter>/<action>[/<id>]', 'People:people');
            $router[] = $admin;
            
            /*$front = new RouteList('Front');

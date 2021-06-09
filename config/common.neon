@@ -22,9 +22,8 @@ di:
 services:
 	- IPeopleFactory
 	- IPeopleFormFactory
-	- ICardFormFactory
 	- ISignFormFactory
+	- App\Model\PeopleModel
 	- App\Model\AdminSignModel
 	- App\Forms\FormFactory
-	- App\Model\PeopleModel
 	- App\Router\RouterFactory::createRouter
