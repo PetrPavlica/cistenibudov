@@ -92,8 +92,8 @@ class CarsForm extends Nette\Application\UI\Control
 }
 
 /** rozhrannĂ­ pro generovanou tovĂˇrniÄŤku */
-interface IPeopleFormFactory
+interface ICarsFormFactory
 {
-    /** @return \PeopleForm */
+    /** @return \CarsForm */
     function create();
 }

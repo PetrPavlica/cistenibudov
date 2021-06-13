@@ -1,11 +1,11 @@
 <?php
 namespace AdminModule;
 
-class PeoplePresenter extends BasePresenter{
+class CarsPresenter extends BasePresenter{
     
         
     /** @var \ICarsFormFactory @inject */
-    public $CarsFormControl;
+    public $carsFormControl;
     
    
     /** @var \App\Model\CarsModel @inject */
@@ -27,7 +27,7 @@ class PeoplePresenter extends BasePresenter{
     }
     
     
-    public function renderPeople():void{
+    public function renderCars():void{
         
         
     }
