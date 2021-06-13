@@ -22,7 +22,7 @@ final class StartPresenter extends Nette\Application\UI\Presenter
 		$control = $this->signFormFactory->create();
 		$control->onSignSave[] = function () {
                     if($this->user->getIdentity()){
-                         $this->redirect('Users:default');                    }
+                         $this->redirect('People:people');                    }
                     else{
                         $this->flashMessage('Chybné jméno nebo heslo');
                     }

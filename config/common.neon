@@ -22,8 +22,11 @@ di:
 services:
 	- IPeopleFactory
 	- IPeopleFormFactory
+	- ICarsFormFactory
+	- IBoltDataFormFactory
 	- ISignFormFactory
 	- App\Model\PeopleModel
+	- App\Model\CarsModel
 	- App\Model\AdminSignModel
 	- App\Forms\FormFactory
 	- App\Router\RouterFactory::createRouter

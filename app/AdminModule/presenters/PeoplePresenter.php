@@ -9,9 +9,18 @@ class PeoplePresenter extends BasePresenter{
     /** @var \IPeopleFormFactory @inject */
     public $peopleFormControl;
     
+    /** @var \IBoltDataFormFactory @inject */
+    public $boltDataFormControl;
+    
     /** @var \App\Model\PeopleModel @inject */
      public $peopleData;
     
+    protected function createComponentBoltDataForm(): \BoltDataForm {
+        
+        $component = $this->boltDataFormControl->create($this->getParameter('wwwDir'));
+        return $component;
+    }
+     
     protected function createComponentPeople(): \PeopleComponent {
         
         $component = $this->peopleControl->create();
@@ -27,6 +36,11 @@ class PeoplePresenter extends BasePresenter{
     
     
     public function renderPeople():void{
+        
+        
+    }
+    
+    public function renderBoltdata():void{
         
         
     }

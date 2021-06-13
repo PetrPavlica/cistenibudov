@@ -1,27 +1,22 @@
 <?php
 
-use App\Model\PeopleModel;
-use Nette\Utils\Image;
-use Nette\Security\Passwords;
-class PeopleForm extends Nette\Application\UI\Control
+
+class CarsForm extends Nette\Application\UI\Control
 {
-    private $peopleData;
+    private $carsData;
     
     private $factory;
-    
-    private $dir;
-    private $passwords;        
-    public $onPeopleSave;
+
+    public $onCarsSave;
     
     private $id=0;
             
-    public function __construct(Nette\Security\Passwords $passwords,App\Model\PeopleModel $peopleData,\App\Forms\FormFactory $factory,$dir)
+    public function __construct(App\Model\CarsModel $carsData,\App\Forms\FormFactory $factory)
     {
-        $this->passwords = $passwords;
-        $this->peopleData = $peopleData;
+        
+        $this->carsData = $carsData;
         $this->factory = $factory;
-        $this->dir = $dir;
-    }
+        }
     
     public function handleedit($id){
         $data_default = $this->peopleData->peopleById($id);
@@ -37,12 +32,9 @@ class PeopleForm extends Nette\Application\UI\Control
         $form->addText('name','Jméno:')
                         ->setRequired('Zadejte jméno');
                 
-        $form->addText('phone','Telefon:')
-                        ->setRequired('Zadejte telefon');
-        
-        $form->addText('email','Email:')
-                        ->setRequired('Zadejte email');
-               
+        $form->addText('spz','SPZ:')
+                        ->setRequired('Zadejte spz');
+                     
         $form->addHidden('id',$this->id);
         
         $form->addSubmit('send', 'Uložit')
@@ -103,5 +95,5 @@ class PeopleForm extends Nette\Application\UI\Control
 interface IPeopleFormFactory
 {
     /** @return \PeopleForm */
-    function create($dir);
+    function create();
 }

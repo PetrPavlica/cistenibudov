@@ -2,6 +2,6 @@ parameters:
 
 
 database:
-	dsn: 'mysql:host=127.0.0.1;dbname=cards'
+	dsn: 'mysql:host=127.0.0.1;dbname=taxi'
 	user: root
 	password: 

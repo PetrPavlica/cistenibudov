@@ -3,7 +3,7 @@
 use App\Model\PeopleModel;
 use Nette\Utils\Image;
 use Nette\Security\Passwords;
-class PeopleForm extends Nette\Application\UI\Control
+class PeopleInfForm extends Nette\Application\UI\Control
 {
     private $peopleData;
     
@@ -11,7 +11,7 @@ class PeopleForm extends Nette\Application\UI\Control
     
     private $dir;
     private $passwords;        
-    public $onPeopleSave;
+    public $onPeopleInfSave;
     
     private $id=0;
             
@@ -29,7 +29,7 @@ class PeopleForm extends Nette\Application\UI\Control
         $this->id = $id;
     }
     
-    public function createComponentPeopleForm() 
+    public function createComponentPeopleInfForm() 
 
     {
         $form = $this->factory->create();
@@ -100,8 +100,8 @@ class PeopleForm extends Nette\Application\UI\Control
 }
 
 /** rozhrannĂ­ pro generovanou tovĂˇrniÄŤku */
-interface IPeopleFormFactory
+interface IPeopleInfFormFactory
 {
-    /** @return \PeopleForm */
+    /** @return \PeopleInfForm */
     function create($dir);
 }

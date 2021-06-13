@@ -2,7 +2,7 @@
 
 namespace App\Model;
 
-class PeopleModel extends BaseModel{
+class CarsModel extends BaseModel{
     
     public function allPeople() {
        return $this->database->table('people');
@@ -17,8 +17,8 @@ class PeopleModel extends BaseModel{
        return $select->update($data);
    } 
     
-    public function addPeople($data){
-        return $this->database->table('people')->insert($data);
+    public function addCar($data){
+        return $this->database->table('cars')->insert($data);
     }
     
     public function peopleById($id){
