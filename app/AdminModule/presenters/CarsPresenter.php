@@ -7,18 +7,20 @@ class CarsPresenter extends BasePresenter{
     /** @var \ICarsFormFactory @inject */
     public $carsFormControl;
     
+    /** @var \ICarsFactory @inject */
+    public $carsControl;
    
     /** @var \App\Model\CarsModel @inject */
      public $carsData;
     
    
-   /*  
-    protected function createComponentPeople(): \PeopleComponent {
+     
+    protected function createComponentCars(): \CarsComponent {
         
-        $component = $this->peopleControl->create();
+        $component = $this->carsControl->create();
         return $component;
     }
-    */
+    
         
     protected function createComponentCarsForm(): \CarsForm {
         

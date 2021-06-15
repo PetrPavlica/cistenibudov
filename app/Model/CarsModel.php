@@ -4,8 +4,8 @@ namespace App\Model;
 
 class CarsModel extends BaseModel{
     
-    public function allPeople() {
-       return $this->database->table('people');
+    public function allCars() {
+       return $this->database->table('cars');
     }
     
     public function allPeopleActive() {
