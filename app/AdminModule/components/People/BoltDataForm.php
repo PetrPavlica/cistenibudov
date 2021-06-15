@@ -95,22 +95,6 @@ class BoltDataForm extends Nette\Application\UI\Control
                   $last = $this->peopleData->saveBolt($save);
                 }
                 
-                              /*'storno'=>$row[4],
-                              'rezervation_pay'=>$row[5],
-                              'rezervation_diferent'=>$row[6],
-                              'pay_plus'=>$row[7],
-                              'drive_money'=>$row[8],
-                              'drive_money_bolt'=>$row[9],
-                              'bonus'=>$row[10],
-                              'compenzation'=>$row[11],
-                              'refundation'=>$row[12],
-                              'gratuity'=>$row[13],
-                              'week_balance'=>$row[14]*/
-                             
-                              
-                
-                
-                
                 }
                 $i++;
             }
