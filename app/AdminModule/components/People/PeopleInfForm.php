@@ -13,36 +13,38 @@ class PeopleInfForm extends Nette\Application\UI\Control
     private $passwords;        
     public $onPeopleInfSave;
     
-    private $id=0;
+    private $id;
             
-    public function __construct(Nette\Security\Passwords $passwords,App\Model\PeopleModel $peopleData,\App\Forms\FormFactory $factory,$dir)
+    public function __construct(Nette\Security\Passwords $passwords,App\Model\PeopleModel $peopleData,\App\Forms\FormFactory $factory,$dir,$id)
     {
         $this->passwords = $passwords;
         $this->peopleData = $peopleData;
         $this->factory = $factory;
         $this->dir = $dir;
-    }
-    
-    public function handleedit($id){
-        $data_default = $this->peopleData->peopleById($id);
-        $this['peopleForm']->setDefaults($data_default);
         $this->id = $id;
     }
+    
+    
     
     public function createComponentPeopleInfForm() 
 
     {
         $form = $this->factory->create();
         
-        $form->addText('name','Jméno:')
-                        ->setRequired('Zadejte jméno');
+        $form->addText('cu','Cislo uctu:');
                 
-        $form->addText('phone','Telefon:')
-                        ->setRequired('Zadejte telefon');
+        $form->addText('city','Mesto:');
+         
+        $form->addText('street','Ulice:');
+          
+        $form->addText('cp','Cp:');
+         
+        $form->addUpload('op','Op:');
         
-        $form->addText('email','Email:')
-                        ->setRequired('Zadejte email');
-               
+        $form->addUpload('driver_op','Driver_Op:');
+        
+        $form->addUpload('photo','Photo:');
+        
         $form->addHidden('id',$this->id);
         
         $form->addSubmit('send', 'Uložit')
@@ -55,7 +57,7 @@ class PeopleInfForm extends Nette\Application\UI\Control
 
     public function processForm($form)
     {
-        bdump('jelo');
+        
         $user_data = array('email'=>$form['email']->getValue(),
                            'role'=>$form['pozition']->getValue());
       
@@ -94,7 +96,8 @@ class PeopleInfForm extends Nette\Application\UI\Control
     }
     
     public function render(){
-       $this->template->render(__DIR__ .'/peopleform.latte');
+       $this->template->id = $this->id;  
+       $this->template->render(__DIR__ .'/peopleinfform.latte');
        //$this->template->render();
     }
 }
@@ -103,5 +106,5 @@ class PeopleInfForm extends Nette\Application\UI\Control
 interface IPeopleInfFormFactory
 {
     /** @return \PeopleInfForm */
-    function create($dir);
+    function create($dir,$id);
 }

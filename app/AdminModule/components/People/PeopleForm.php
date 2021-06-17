@@ -11,7 +11,7 @@ class PeopleForm extends Nette\Application\UI\Control
     
     private $dir;
     private $passwords;        
-    public $onPeopleSave;
+    public $onPeopleFormSave;
     
     private $id=0;
             
@@ -55,41 +55,15 @@ class PeopleForm extends Nette\Application\UI\Control
 
     public function processForm($form)
     {
-        bdump('jelo');
-        $user_data = array('email'=>$form['email']->getValue(),
-                           'role'=>$form['pozition']->getValue());
-      
-        $saveData = $this->peopleData->addPeople($form->getValues());                   
-        $file = $form['photo']->getValue();
-        if(!$file){
-        $count = $this->peopleData->countName($form['name']->getValue());
-        $file_ext=strtolower(mb_substr($file->getSanitizedName(), strrpos($file->getSanitizedName(), ".")));
-        $file_name = $form['name']->getValue().$count.$file_ext;
-        $data = array('name'=>$form['name']->getValue(),
-                      'phone'=>$form['phone']->getValue(),
-                      'email'=>$form['email']->getValue(),
-                      'photo'=>$file_name);
-        $path = $this->dir.'/images/origin/'.$file_name;
-        $form['photo']->getValue()->move($path);
-        
-        $image_s = Image::fromFile($path);
-        $image_s->resize(152,152);
-        $path = $this->dir.'/img/152x152/'.$file_name;
-        $image_s->save($path);
-        }else{
-        $data = array('name'=>$form['name']->getValue(),
-                      'phone'=>$form['phone']->getValue(),
-                      'email'=>$form['email']->getValue(),
-                      'photo'=>'NONE');
-            
-        }
+             
+        $data = $form->getValues();
         if($form['id']->getValue() == 0){
             $save = $this->peopleData->addPeople($data);
         }
         else{
             $save = $this->peopleData->updatePeople($form['id']->getValue(),$data);
         }
-        $this->onPeopleSave($this, $saveData);
+        $this->onPeopleFormSave($save);
 
     }
     

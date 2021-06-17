@@ -4,16 +4,25 @@
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group name="htdocs">
             <file>file:/C:/xampp8/htdocs/taxi/app/AdminModule/components/Cars/CarsForm.php</file>
-            <file>file:/C:/xampp8/htdocs/taxi/app/AdminModule/presenters/CarsPresenter.php</file>
-            <file>file:/C:/xampp8/htdocs/taxi/app/AdminModule/templates/@layoutSignAdmin.latte</file>
+            <file>file:/C:/xampp8/htdocs/taxi/app/AdminModule/components/People/PeopleForm.php</file>
             <file>file:/C:/xampp8/htdocs/taxi/app/AdminModule/templates/Cars/cars.latte</file>
-            <file>file:/C:/xampp8/htdocs/taxi/app/AdminModule/components/Cars/carsform.latte</file>
+            <file>file:/C:/xampp8/htdocs/taxi/app/AdminModule/components/People/PeopleInfForm.php</file>
             <file>file:/C:/xampp8/htdocs/taxi/app/AdminModule/components/Cars/CarsComponent.php</file>
             <file>file:/C:/xampp8/htdocs/taxi/app/AdminModule/components/Cars/allcars.latte</file>
             <file>file:/C:/xampp8/htdocs/taxi/config/common.neon</file>
+            <file>file:/C:/xampp8/htdocs/taxi/app/AdminModule/presenters/PeoplePresenter.php</file>
+            <file>file:/C:/xampp8/htdocs/taxi/app/AdminModule/components/Sign/SignComponent.php</file>
+            <file>file:/C:/xampp8/htdocs/taxi/app/AdminModule/presenters/StartPresenter.php</file>
+            <file>file:/C:/xampp8/htdocs/taxi/app/AdminModule/components/People/peopleinf.latte</file>
             <file>file:/C:/xampp8/htdocs/taxi/app/Model/CarsModel.php</file>
             <file>file:/C:/xampp8/htdocs/taxi/app/AdminModule/templates/People/people.latte</file>
             <file>file:/C:/xampp8/htdocs/taxi/app/AdminModule/components/People/allpeople.latte</file>
+            <file>file:/C:/xampp8/htdocs/taxi/app/AdminModule/templates/People/peopleinf.latte</file>
+            <file>file:/C:/xampp8/htdocs/taxi/app/AdminModule/presenters/CarsPresenter.php</file>
+            <file>file:/C:/xampp8/htdocs/taxi/app/AdminModule/templates/@layoutSignAdmin.latte</file>
+            <file>file:/C:/xampp8/htdocs/taxi/app/AdminModule/components/Cars/carsform.latte</file>
+            <file>file:/C:/xampp8/htdocs/taxi/app/AdminModule/components/People/BoltDataForm.php</file>
+            <file>file:/C:/xampp8/htdocs/taxi/app/AdminModule/components/People/peopleinfform.latte</file>
         </group>
     </open-files>
 </project-private>

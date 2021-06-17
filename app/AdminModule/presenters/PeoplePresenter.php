@@ -9,6 +9,9 @@ class PeoplePresenter extends BasePresenter{
     /** @var \IPeopleFormFactory @inject */
     public $peopleFormControl;
     
+    /** @var \IPeopleInfFormFactory @inject */
+    public $peopleInfFormControl;
+    
     /** @var \IBoltDataFormFactory @inject */
     public $boltDataFormControl;
     
@@ -24,13 +27,22 @@ class PeoplePresenter extends BasePresenter{
     protected function createComponentPeople(): \PeopleComponent {
         
         $component = $this->peopleControl->create();
+        
         return $component;
     }
     
+    protected function createComponentPeopleInfForm(): \PeopleInfForm {
         
+        $component = $this->peopleInfFormControl->create($this->getParameter('wwwDir'),$this->getParameter('id'));
+        return $component;
+    }
+    
     protected function createComponentPeopleForm(): \PeopleForm {
         
         $component = $this->peopleFormControl->create($this->getParameter('wwwDir'));
+        $component->onPeopleFormSave[] = function ($data) {
+                    $this->redirect('People:peopleinf',$data['id']);
+		};
         return $component;
     }
     
@@ -44,6 +56,9 @@ class PeoplePresenter extends BasePresenter{
         
         
     }
-    
+    public function renderPeopleInf($id):void{
+        
+        
+    }
     
 }
