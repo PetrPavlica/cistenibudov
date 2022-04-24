@@ -2,8 +2,10 @@
 
 {block content}
         
-<button class="btn btn-theme" type="submit" onclick="hideFunction()" style="margin-top: 10px;">Přidat člověka</button>
-<div id="hide">
+<button class="btn btn-primary" type="button" data-toggle="collapse" data-target="#people" aria-expanded="false" aria-controls="people">
+    Přidat člověka
+  </button>
+<div class='collapse' id="people">
 {control peopleForm}
 </div>
 {control people}

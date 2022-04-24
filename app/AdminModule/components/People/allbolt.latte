@@ -1,0 +1,69 @@
+{* Latte template *}
+
+{block content}
+                        
+<!-- row -->
+        <div class="row mt">
+          <div class="col-md-12">
+            <div class="content-panel">
+              <table class="table table-striped table-advance table-hover">
+                <h4><i class="fa fa-angle-right"></i> Bolt</h4>
+                <hr>
+                <thead>
+                  <tr>
+                    <th>ID</th>
+                    <th>Jméno</th>
+                    <th>Telefon</th>
+                    <th>Od</th>
+                    <th>Do</th>
+                    <th>Hrubé jízdné</th>
+                    <th>Storno poplatek</th>
+                    <th>Rezervační poplatek</th>
+                    <th>Rezervační poplatek rozdíl</th>
+                    <th>Příplatek</th>
+                    <th>Bolt poplatek</th>
+                    <th>Jízda za hotovost</th>
+                    <th>Slevy</th>
+                    <th>Bonus</th>
+                    <th>Kompenzace</th>
+                    <th>Vrácené peníze</th>
+                    <th>Spropitné</th>
+                    <th>Týdenní zůstate</th>
+                    
+                  </tr>
+                </thead>
+                <tbody>
+                {foreach $allBolt as $bolt}    
+                  <tr>
+                    <td>
+                      {$bolt['id']}
+                    </td>
+                    
+                    <td>{$bolt['driver']}</td>
+                    <td>{$bolt['phone_number']}</td>
+                    <td>{$bolt['date_from']}</td>
+                    <td>{$bolt['date_to']}</td>
+                    <td>{$bolt['pay']}</td>
+                    <td>{$bolt['storno']}</td>
+                    <td>{$bolt['rezervation_pay']}</td>
+                    <td>{$bolt['rezervation_diferent']}</td>
+                    <td>{$bolt['pay_plus']}</td>
+                    <td>{$bolt['to_bolt']}</td>
+                    <td>{$bolt['drive_money']}</td>
+                    <td>{$bolt['drive_money_bolt']}</td>
+                    <td>{$bolt['bonus']}</td>
+                    <td>{$bolt['compenzation']}</td>
+                    <td>{$bolt['refundation']}</td>
+                    <td>{$bolt['gratuity']}</td>
+                    <td>{$bolt['week_balance']}</td>
+                    
+                  </tr>
+                  {/foreach}                  
+                </tbody>
+              </table>
+            </div>
+            <!-- /content-panel -->
+          </div>
+          <!-- /col-md-12 -->
+        </div>
+        <!-- /row -->

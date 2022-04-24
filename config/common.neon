@@ -22,9 +22,18 @@ di:
 services:
 	- IPeopleFactory
 	- IPeopleFormFactory
+	- IPeopleBonusFormFactory
+	- IPeoplePrepayFormFactory
 	- IPeopleInfFormFactory
+	- IBoltFactory
 	- ICarsFactory
 	- ICarsFormFactory
+	- ICarFactory
+	- ICarsCrashesFormFactory
+	- ICarsPeopleFormFactory
+	- ICarsWheelsFormFactory
+	- ICarsRepairsFormFactory
+	- ICarsCardsFormFactory
 	- IBoltDataFormFactory
 	- ISignFormFactory
 	- App\Model\PeopleModel

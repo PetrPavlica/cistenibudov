@@ -30,20 +30,26 @@ class PeopleInfForm extends Nette\Application\UI\Control
 
     {
         $form = $this->factory->create();
-        
-        $form->addText('cu','Cislo uctu:');
-                
+               
         $form->addText('city','Mesto:');
          
         $form->addText('street','Ulice:');
           
         $form->addText('cp','Cp:');
-         
-        $form->addUpload('op','Op:');
         
-        $form->addUpload('driver_op','Driver_Op:');
+        $form->addText('psc','Psc:');
+        
+        $form->addText('cu','Cislo uctu:');
+        
+        $form->addText('crp','Cislo rp:');
         
         $form->addUpload('photo','Photo:');
+        
+        $form->addUpload('driver_op_front','Driver_Op:');
+        
+        $form->addUpload('driver_op_next','Driver_Op:');
+        
+        
         
         $form->addHidden('id',$this->id);
         
@@ -57,9 +63,7 @@ class PeopleInfForm extends Nette\Application\UI\Control
 
     public function processForm($form)
     {
-        
-        $user_data = array('email'=>$form['email']->getValue(),
-                           'role'=>$form['pozition']->getValue());
+    
       
         $saveData = $this->peopleData->addPeople($form->getValues());                   
         $file = $form['photo']->getValue();

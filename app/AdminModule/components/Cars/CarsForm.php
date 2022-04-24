@@ -19,9 +19,7 @@ class CarsForm extends Nette\Application\UI\Control
         }
     
     public function handleedit($id){
-        $data_default = $this->peopleData->peopleById($id);
-        $this['peopleForm']->setDefaults($data_default);
-        $this->id = $id;
+        
     }
     
     public function createComponentCarsForm() 
@@ -34,6 +32,15 @@ class CarsForm extends Nette\Application\UI\Control
                 
         $form->addText('spz','SPZ:')
                         ->setRequired('Zadejte spz');
+        
+        $form->addText('price','Cena:')
+                        ->setRequired('Zadejte cenu');
+        
+        $form->addText('color','Barva:')
+                        ->setRequired('Zadejte barvu');
+        
+        $form->addText('year','Rok:')
+                        ->setRequired('Zadejte rok');
                      
         $form->addHidden('id',$this->id);
         

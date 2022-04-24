@@ -1,0 +1,97 @@
+{* Latte template *}
+<button class="btn btn-primary" type="button" data-toggle="collapse" data-target="#peoplecar" aria-expanded="false" aria-controls="peoplecar" style='margin-top: 10px;'>
+    Přidělení auta
+  </button>
+<div class='collapse' id="peoplecar">
+{block content}
+<div class="row mt">
+          <div class="col-lg-12">
+            <div class="form-panel">
+              <h4 class="mb"><i class="fa fa-angle-right"></i> Přidělení auta</h4>
+                 {if $car['people_id']== 0}
+                 <form n:name="carsPeopleForm" class='form-horizontal style-form'>
+                    <div class='form-group'>
+                     <label n:name='people_id' class="col-sm-2 col-sm-2 control-label" for="name">Řidič</label>
+                       <div class="col-sm-8"> 
+                        <select n:name='people_id' id='people_id' class="form-control round-form"></select>
+                       </div> 
+                    </div>
+                    <div class='form-group'>
+                        <label n:name='pay' class="col-sm-2 col-sm-2 control-label" for="pay">Zaplatit měsíčně</label>
+                       <div class="col-sm-8"> 
+                        <input n:name='pay' type='number' id='pay' class="form-control round-form">
+                       </div> 
+                     </div>     
+                    <div class='form-group'>
+                        <label n:name='date_start' class="col-sm-2 col-sm-2 control-label" for="spz">Datum od</label>
+                       <div class="col-sm-8"> 
+                        <input n:name='date_start' type='date' id='date_start' class="form-control round-form">
+                       </div> 
+                    </div>
+                    <div class='form-group'>
+                        <label n:name='date_end' class="col-sm-2 col-sm-2 control-label" for="spz">Datum do</label>
+                       <div class="col-sm-8"> 
+                        <input n:name='date_end' type='date' id='date_end' class="form-control round-form">
+                       </div> 
+                    </div>
+                    <div class="form-group">
+                    <div class="col-lg-offset-2 col-lg-10">
+                      <button n:name='send' class="btn btn-theme" type="submit">Uložit</button>
+                      
+                    </div>
+                  </div>
+                </form>
+                 {else}
+                     
+              {/if}
+              
+                  
+            </div>
+           </div>
+</div>
+</div>
+<div class="row mt">
+          <div class="col-md-12">
+            <div class="content-panel">
+              <table class="table table-striped table-advance table-hover">
+                <h4><i class="fa fa-angle-right"></i> Zapůjčeno</h4>
+                <hr>
+                <thead>
+                  <tr>
+                    <th>ID</th>
+                    <th>Řidič</th>
+                    
+                    <th>Datum</th>
+                    
+
+                    <th></th>
+                  </tr>
+                </thead>
+                <tbody>
+                {foreach $carpeople as $driver}    
+                  <tr>
+                    <td>
+                      {$driver['id']}
+                    </td>
+                    
+                    
+                    <td>{$people[$driver['people_id']]}</td>
+                    <td>{$driver['date_start']|date:'j. n. Y'}</td>
+                    
+                    
+                    
+                   
+                    <td>
+                      <a href="{plink carsForm:edit!,$driver['id']}"><button class="btn btn-primary btn-xs"><i class="fa fa-pencil"></i></button></a>
+                                            
+                      <button class="btn btn-danger btn-xs"><i class="fa fa-trash-o "></i></button>
+                    </td>
+                  </tr>
+                  {/foreach}                  
+                </tbody>
+              </table>
+            </div>
+            <!-- /content-panel -->
+          </div>
+          <!-- /col-md-12 -->
+        </div>

@@ -75,7 +75,7 @@ class BoltDataForm extends Nette\Application\UI\Control
                   }
                  bdump($r);
                   $save = array('driver'=>$driver,
-                                'phone_number' => $phone_number,
+                                'phone_number' => str_replace('"','',$phone_number),
                                 'date_from'=>$date_r[1],
                                 'date_to'=>$date_r[3],
                                 'pay'=>str_replace('"','',$r[3].'.'.$r[4]),
@@ -83,13 +83,14 @@ class BoltDataForm extends Nette\Application\UI\Control
                                 'rezervation_pay'=>str_replace('"','',$r[7].'.'.$r[8]),
                                 'rezervation_diferent'=>str_replace('"','',$r[9].'.'.$r[10]),
                                 'pay_plus'=>str_replace('"','',$r[11].'.'.$r[12]),
-                                'drive_money'=>str_replace('"','',$r[13].'.'.$r[14]),
-                                'drive_money_bolt'=>str_replace('"','',$r[15].'.'.$r[16]),
-                                'bonus'=>str_replace('"','',$r[17].'.'.$r[18]),
-                                'compenzation'=>str_replace('"','',$r[19].'.'.$r[20]),
-                                'refundation'=>str_replace('"','',$r[21].'.'.$r[22]),
-                                'gratuity'=>str_replace('"','',$r[23].'.'.$r[24]),
-                                'week_balance'=>str_replace('"','',$r[25].'.'.$r[26])
+                                'to_bolt'=>str_replace('"','',$r[13].'.'.$r[14]),
+                                'drive_money'=>str_replace('"','',$r[15].'.'.$r[16]),
+                                'drive_money_bolt'=>str_replace('"','',$r[17].'.'.$r[18]),
+                                'bonus'=>str_replace('"','',$r[19].'.'.$r[20]),
+                                'compenzation'=>str_replace('"','',$r[21].'.'.$r[22]),
+                                'refundation'=>str_replace('"','',$r[23].'.'.$r[24]),
+                                'gratuity'=>str_replace('"','',$r[25].'.'.$r[26]),
+                                'week_balance'=>str_replace('"','',$r[27])
                             );
                   
                   $last = $this->peopleData->saveBolt($save);

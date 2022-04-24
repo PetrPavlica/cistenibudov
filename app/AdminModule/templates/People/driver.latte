@@ -1,0 +1,97 @@
+{* Latte template *}
+
+{block content}
+<!-- row -->
+        <div class="row mt">
+          <div class="col-md-12">
+            <div class="content-panel">
+              <table class="table table-striped table-advance table-hover">
+                <h4><i class="fa fa-angle-right"></i> Auta</h4>
+                <a href="{link People:driver $id,$day,'prev'}">                    
+                    <i class="fa fa-angle-left"></i></a>  
+                    {$date_start|date:'j. n. Y'} - {$date_end|date:'j. n. Y'}
+                         <a href="{link People:driver $id,$day,'next'}"><i class="fa fa-angle-right"></i></a>  
+
+                <hr>
+                <thead>
+                  <tr>
+                    
+                    <th>Údaj</th>
+                    <th>Finance</th>
+                    
+                    <th></th>
+                  </tr>
+                </thead>
+                <tbody>
+                   
+                  <tr>
+                    <td>
+                      Poplatek za auto
+                    </td>
+                    <td>
+                      0
+                    </td>
+                  </tr>
+                  {foreach $all_crashes as $crash}
+                  <tr>
+                    <td>
+                      Poplatek za nehodu dne {$crash['date']}<br/>
+                      Spoluúčast<br/>
+                      Zaplaceno ze zálohy<br/>
+                      Zaplatit <br/>
+                    </td>
+                    
+                    <td>
+                        <br/>
+                       {$crash['pay']}<br/>
+                       {$crash['from_prepay']}<br/>
+                       {$crash['pay']-$crash['from_prepay']}<br/>
+                    </td>
+                    
+                  </tr>
+                  {/foreach}
+                 {foreach $all_repairs as $repairs}
+                  <tr>
+                    <td>
+                      Poplatek za opravu<br/>
+                      Spoluúčast<br/>
+                      Zaplaceno ze zálohy<br/>
+                      Zaplatit <br/>
+                    </td>
+                    
+                    <td>
+                        <br/>
+                       {$repairs['pay']}<br/>
+                       {$repairs['from_prepay']}<br/>
+                       {$repairs['pay']-$repairs['from_prepay']}<br/>
+                    </td>
+                    
+                  </tr>
+                  {/foreach}
+                   <tr>
+                    <td>
+                      Bolt
+                    </td>
+                    <td>
+                      0
+                    </td>
+                  </tr>
+                  <tr>
+                    <td style="font-style: italic;">
+                      Celkem
+                    </td>
+                    <td style="font-style: italic;">
+                      0
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+                Celkový bank {$prepay_sum}
+            </div>
+            <!-- /content-panel -->
+          </div>
+          <!-- /col-md-12 -->
+        </div>
+        <!-- /row -->
+        {control peopleBonusForm}
+        {control peoplePrepayForm}

@@ -12,7 +12,9 @@ class PeopleForm extends Nette\Application\UI\Control
     private $dir;
     private $passwords;        
     public $onPeopleFormSave;
-    
+    public $pozition = array(1=>'Samostatný řidič',
+                             2=>'Řídí na IČO pro:',
+                             3=>'Řídí na HPP pro:');
     private $id=0;
             
     public function __construct(Nette\Security\Passwords $passwords,App\Model\PeopleModel $peopleData,\App\Forms\FormFactory $factory,$dir)
@@ -32,10 +34,14 @@ class PeopleForm extends Nette\Application\UI\Control
     public function createComponentPeopleForm() 
 
     {
+        $drivering_for = $this->peopleData->driverSelector();
         $form = $this->factory->create();
         
         $form->addText('name','Jméno:')
                         ->setRequired('Zadejte jméno');
+        
+        $form->addSelect('pozition','Pozice:',$this->pozition)
+                        ->setRequired('Zadejte pozici');
                 
         $form->addText('phone','Telefon:')
                         ->setRequired('Zadejte telefon');

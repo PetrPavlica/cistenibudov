@@ -2,8 +2,9 @@
 
 {block content}
         
-<button class="btn btn-theme" type="submit" onclick="hideFunction()" style="margin-top: 10px;">Přidat auto</button>
-<div id="hide">
-{control carsForm}
+<button class="btn btn-primary" type="button" data-toggle="collapse" data-target="#newcar" aria-expanded="false" aria-controls="newcar" style='margin-top: 10px;'>
+    Přidat auto
+  </button>
+<div class='collapse' id="newcar">{control carsForm}
 </div>
 {control cars}
